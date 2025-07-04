@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://chj5c1o6pmvmq"]
+
+[ext_resource type="Texture2D" uid="uid://b0laiswj07e55" path="res://player/main_ship-1.png" id="1_g1dw6"]
+[ext_resource type="Script" uid="uid://biwek47phovtp" path="res://player/player.gd" id="1_yw30f"]
+[ext_resource type="Texture2D" uid="uid://n7ii6qcqp31m" path="res://player/main_ship-2.png" id="2_yw30f"]
+[ext_resource type="Texture2D" uid="uid://qo4bpr657spb" path="res://player/main_ship-3.png" id="3_qjkh3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6k8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g1dw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_yw30f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qjkh3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Player" type="Area2D"]
+scale = Vector2(0.7, 0.7)
+collision_mask = 2
+script = ExtResource("1_yw30f")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(15.5625, 13.375)
+scale = Vector2(5.39062, 3.5436)
+polygon = PackedVector2Array(-2.88696, -10.5472, -4.37102, -4.9032, -7.33913, -0.105825, 1.56522, -0.388024, -1.58841, -5.1854)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g6k8r")
+frame_progress = 0.133214
+
+[node name="ProjectileTimer" type="Timer" parent="."]
+
+[node name="Muzzle" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -28)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="ProjectileTimer" to="." method="_on_timer_timeout"]

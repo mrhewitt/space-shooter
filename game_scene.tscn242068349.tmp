@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://dp7l2liqvc6ug"]
+
+[ext_resource type="Texture2D" uid="uid://754yr5d8y54t" path="res://Nebula Blue.png" id="1_po0ka"]
+[ext_resource type="Script" uid="uid://k72fo7e4ynle" path="res://game_scene.gd" id="1_v1wow"]
+[ext_resource type="PackedScene" uid="uid://chj5c1o6pmvmq" path="res://player/player.tscn" id="2_v1wow"]
+[ext_resource type="Texture2D" uid="uid://qgjcms080wd0" path="res://overlays/logo.png" id="4_kdryc"]
+[ext_resource type="Texture2D" uid="uid://f84g81rlb8kk" path="res://overlays/Start_BTN.png" id="5_6e45b"]
+[ext_resource type="Texture2D" uid="uid://w7vm3o2gaea3" path="res://overlays/flamingtext_com-245086560.png" id="6_e35lh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdryc"]
+size = Vector2(148, 41)
+
+[node name="GameScene" type="Node2D"]
+script = ExtResource("1_v1wow")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_po0ka")
+expand_mode = 1
+flip_v = true
+
+[node name="GameLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="AsteroidTimer" type="Timer" parent="GameLayer"]
+unique_name_in_owner = true
+
+[node name="EnemyTimer" type="Timer" parent="GameLayer"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="SpriteList" type="Node" parent="GameLayer"]
+unique_name_in_owner = true
+
+[node name="Player" parent="GameLayer" instance=ExtResource("2_v1wow")]
+position = Vector2(240, 330)
+
+[node name="ReadyTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StartScreenLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StartScreenLayer"]
+position = Vector2(245, 149)
+scale = Vector2(0.818605, 0.982143)
+texture = ExtResource("4_kdryc")
+
+[node name="StartButton" type="Area2D" parent="StartScreenLayer"]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="StartButtonImage" type="Sprite2D" parent="StartScreenLayer/StartButton"]
+unique_name_in_owner = true
+modulate = Color(0.494854, 0.494855, 0.494854, 1)
+position = Vector2(244, 284)
+scale = Vector2(0.370732, 0.384298)
+texture = ExtResource("5_6e45b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartScreenLayer/StartButton"]
+position = Vector2(245, 283.5)
+shape = SubResource("RectangleShape2D_kdryc")
+
+[node name="GameOverLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="GameOverLayer"]
+position = Vector2(240, 162.25)
+scale = Vector2(0.513547, 0.718023)
+texture = ExtResource("6_e35lh")
+
+[connection signal="timeout" from="GameLayer/AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
+[connection signal="timeout" from="GameLayer/EnemyTimer" to="." method="_on_enemy_timer_timeout"]
+[connection signal="player_died" from="GameLayer/Player" to="." method="_on_player_player_died"]
+[connection signal="timeout" from="ReadyTimer" to="." method="_on_ready_timer_timeout"]
+[connection signal="input_event" from="StartScreenLayer/StartButton" to="." method="_on_start_button_input_event"]
+[connection signal="mouse_entered" from="StartScreenLayer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="mouse_exited" from="StartScreenLayer/StartButton" to="." method="_on_start_button_mouse_exited"]
