@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://dyecrbv67qcu"]
 
-[ext_resource type="Texture2D" uid="uid://dedtdekmv2p47" path="res://enemy/spritesheet_enemy_1.png" id="1_ofsxj"]
+[ext_resource type="Texture2D" uid="uid://dedtdekmv2p47" path="res://assets/enemy/spritesheet_enemy_1.png" id="1_ofsxj"]
 [ext_resource type="Script" uid="uid://bvnn8enirmf0n" path="res://enemy/enemy.gd" id="1_ppra6"]
-[ext_resource type="Texture2D" uid="uid://dvfo8f8v27eva" path="res://enemy/spritesheet_enemy_2.png" id="2_ppra6"]
-[ext_resource type="Texture2D" uid="uid://c51vgk4msgdxe" path="res://enemy/CrabShip.png" id="4_p200p"]
+[ext_resource type="Texture2D" uid="uid://dvfo8f8v27eva" path="res://assets/enemy/spritesheet_enemy_2.png" id="2_ppra6"]
+[ext_resource type="Texture2D" uid="uid://c51vgk4msgdxe" path="res://assets/enemy/CrabShip.png" id="4_p200p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p200p"]
 atlas = ExtResource("1_ofsxj")

@@ -7,7 +7,10 @@ This is not a complete game but rather a project done for learning purposes
 Note I am also just learning Godot so this may not be an ideal implementation, it is intended merely to serve a learning tool for myself on Godot and for my son and others who are interested
 to see how a Scratch project may look in Godot.
 
+I am aware the Start button has a wierd effect, and I also know now it should be done rather using a theme, but it will do for this simple example.
 
+Sound FX are not yet implmented
+ 
 ## Instructions
 
 Simple alien killer done to learn Scratch/Godot

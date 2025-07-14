@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp7l2liqvc6ug"]
+[gd_scene load_steps=8 format=3 uid="uid://dp7l2liqvc6ug"]
 
-[ext_resource type="Texture2D" uid="uid://754yr5d8y54t" path="res://Nebula Blue.png" id="1_po0ka"]
+[ext_resource type="Texture2D" uid="uid://754yr5d8y54t" path="res://assets/backgrounds/nebula_blue.png" id="1_po0ka"]
 [ext_resource type="Script" uid="uid://k72fo7e4ynle" path="res://game_scene.gd" id="1_v1wow"]
+[ext_resource type="AudioStream" uid="uid://dirtnu50ipnxx" path="res://assets/audio/Arcade-Heroes.mp3" id="2_6e45b"]
 [ext_resource type="PackedScene" uid="uid://chj5c1o6pmvmq" path="res://player/player.tscn" id="2_v1wow"]
 [ext_resource type="Texture2D" uid="uid://qgjcms080wd0" path="res://overlays/logo.png" id="4_kdryc"]
 [ext_resource type="Texture2D" uid="uid://f84g81rlb8kk" path="res://overlays/Start_BTN.png" id="5_6e45b"]
@@ -9,6 +10,11 @@
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_v1wow")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_6e45b")
+autoplay = true
+bus = &"Music"
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -1

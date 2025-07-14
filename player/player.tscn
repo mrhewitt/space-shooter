@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://chj5c1o6pmvmq"]
 
-[ext_resource type="Texture2D" uid="uid://b0laiswj07e55" path="res://player/main_ship-1.png" id="1_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://b0laiswj07e55" path="res://assets/player/main_ship-1.png" id="1_g1dw6"]
 [ext_resource type="Script" uid="uid://biwek47phovtp" path="res://player/player.gd" id="1_yw30f"]
-[ext_resource type="Texture2D" uid="uid://n7ii6qcqp31m" path="res://player/main_ship-2.png" id="2_yw30f"]
-[ext_resource type="Texture2D" uid="uid://qo4bpr657spb" path="res://player/main_ship-3.png" id="3_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://n7ii6qcqp31m" path="res://assets/player/main_ship-2.png" id="2_yw30f"]
+[ext_resource type="Texture2D" uid="uid://qo4bpr657spb" path="res://assets/player/main_ship-3.png" id="3_qjkh3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g6k8r"]
 animations = [{

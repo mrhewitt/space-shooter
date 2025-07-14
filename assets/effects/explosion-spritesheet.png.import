@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://754yr5d8y54t"
-path="res://.godot/imported/Nebula Blue.png-cfbe2b8af7470d7d9f6f1bf6516a2139.ctex"
+uid="uid://4uq1sxu00s4"
+path="res://.godot/imported/explosion-spritesheet.png-db8d37750e16c94c2c9ca87397f4d64b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Nebula Blue.png"
-dest_files=["res://.godot/imported/Nebula Blue.png-cfbe2b8af7470d7d9f6f1bf6516a2139.ctex"]
+source_file="res://assets/effects/explosion-spritesheet.png"
+dest_files=["res://.godot/imported/explosion-spritesheet.png-db8d37750e16c94c2c9ca87397f4d64b.ctex"]
 
 [params]
 

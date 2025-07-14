@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c51vgk4msgdxe"
-path="res://.godot/imported/CrabShip.png-485fc1b882a2655a1208d6a6e951374d.ctex"
+uid="uid://b2xk2sbe3gngc"
+path="res://.godot/imported/projectile_1.png-f8f183c1e988eb0efd6e506fb9cd2e75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemy/CrabShip.png"
-dest_files=["res://.godot/imported/CrabShip.png-485fc1b882a2655a1208d6a6e951374d.ctex"]
+source_file="res://assets/player/projectile_1.png"
+dest_files=["res://.godot/imported/projectile_1.png-f8f183c1e988eb0efd6e506fb9cd2e75.ctex"]
 
 [params]
 
