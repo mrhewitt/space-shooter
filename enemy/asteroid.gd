@@ -18,3 +18,8 @@ func _physics_process(delta: float) -> void:
 	# move asteroid in its direction of travel
 	velocity = Vector2.from_angle(rotation) * 200
 	move_and_slide()
+
+
+# remove asteroid when it goes off screen 
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()

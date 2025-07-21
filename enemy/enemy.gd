@@ -31,14 +31,15 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector2.from_angle(rotation) * 200
 	move_and_slide();
 	
-	# if it has gone off the bottom remove it
-	if global_position.y > 360:
-		queue_free()
-
 
 func take_hit():
 	var explosion_instance = explosion.instantiate() as Node2D
 	explosion_instance.global_position = global_position
 	get_parent().add_child(explosion_instance)
 	gain_score.emit(10)
+	queue_free()
+
+
+# if it has gone off the screen remove it
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
