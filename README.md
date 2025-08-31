@@ -7,6 +7,15 @@ This is not a complete game but rather a project done for learning purposes
 Note I am also just learning Godot so this may not be an ideal implementation, it is intended merely to serve a learning tool for myself on Godot and for my son and others who are interested
 to see how a Scratch project may look in Godot.
 
+This was done back id mid-July, so I have learnt alot since then, but wanted to use this to at least learn how to upload Itch projects, and perhaps just get it our there instead of just sitting on it.
+
+​Code is at https://github.com/mrhewitt/space-shooter but don't expect much!
+Original Scratch project is at https://scratch.mit.edu/projects/1191937518/​​
+
+Note I have not optimized the build file, so it is a little large for such a minor project, need to work on one for web same as I am for mobile ... 
+https://gist.github.com/mrhewitt/b4a37f62f71caf57841ce1cd3ae7b70b
+
+
 ## Instructions
 
 Simple alien killer done to learn Scratch/Godot

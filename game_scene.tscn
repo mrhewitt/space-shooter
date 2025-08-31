@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://k72fo7e4ynle" path="res://game_scene.gd" id="1_v1wow"]
 [ext_resource type="AudioStream" uid="uid://dirtnu50ipnxx" path="res://assets/audio/Arcade-Heroes.mp3" id="2_6e45b"]
 [ext_resource type="PackedScene" uid="uid://chj5c1o6pmvmq" path="res://player/player.tscn" id="2_v1wow"]
-[ext_resource type="Texture2D" uid="uid://qgjcms080wd0" path="res://overlays/logo.png" id="4_kdryc"]
-[ext_resource type="Texture2D" uid="uid://f84g81rlb8kk" path="res://overlays/Start_BTN.png" id="5_6e45b"]
-[ext_resource type="Texture2D" uid="uid://w7vm3o2gaea3" path="res://overlays/flamingtext_com-245086560.png" id="6_e35lh"]
+[ext_resource type="Texture2D" uid="uid://qgjcms080wd0" path="res://assets/overlays/logo.png" id="4_kdryc"]
+[ext_resource type="Texture2D" uid="uid://f84g81rlb8kk" path="res://assets/overlays/Start_BTN.png" id="5_6e45b"]
+[ext_resource type="Texture2D" uid="uid://w7vm3o2gaea3" path="res://assets/overlays/flamingtext_com-245086560.png" id="6_e35lh"]
 [ext_resource type="AudioStream" uid="uid://neqc85bv2cve" path="res://assets/audio/Losing_Jingle-007.wav" id="8_e35lh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6e45b"]

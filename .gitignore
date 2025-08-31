@@ -1,4 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+/build/
 /addons
+/scratch-pad
+/bin
+*.tmp

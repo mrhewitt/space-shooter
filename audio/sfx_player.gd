@@ -1,7 +1,5 @@
 extends Node
 
-const GAME_AUDIO_BUS_LAYOUT = preload("res://audio/game_audio_bus_layout.tres")
-
 const SFX = {
 	laser = [
 		preload("res://assets/audio/02_Laser_Normal_B.wav")
