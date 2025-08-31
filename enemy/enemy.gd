@@ -26,13 +26,14 @@ func _ready() -> void:
 	$AnimatedSprite2D.play( str("enemy_",randi_range(1,3)) ) 
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# move enemy in its direction of travel
 	velocity = Vector2.from_angle(rotation) * 200
 	move_and_slide();
 	
 
 func take_hit():
+	SfxPlayer.play_random('explosion')
 	var explosion_instance = explosion.instantiate() as Node2D
 	explosion_instance.global_position = global_position
 	get_parent().add_child(explosion_instance)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp7l2liqvc6ug"]
+[gd_scene load_steps=12 format=3 uid="uid://dp7l2liqvc6ug"]
 
 [ext_resource type="Texture2D" uid="uid://754yr5d8y54t" path="res://assets/backgrounds/nebula_blue.png" id="1_po0ka"]
 [ext_resource type="Script" uid="uid://k72fo7e4ynle" path="res://game_scene.gd" id="1_v1wow"]
@@ -7,13 +7,27 @@
 [ext_resource type="Texture2D" uid="uid://qgjcms080wd0" path="res://overlays/logo.png" id="4_kdryc"]
 [ext_resource type="Texture2D" uid="uid://f84g81rlb8kk" path="res://overlays/Start_BTN.png" id="5_6e45b"]
 [ext_resource type="Texture2D" uid="uid://w7vm3o2gaea3" path="res://overlays/flamingtext_com-245086560.png" id="6_e35lh"]
+[ext_resource type="AudioStream" uid="uid://neqc85bv2cve" path="res://assets/audio/Losing_Jingle-007.wav" id="8_e35lh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6e45b"]
+font_size = 64
+font_color = Color(0.540732, 0.0143245, 0.0143245, 1)
+outline_size = 6
+outline_color = Color(1, 0, 0, 1)
+shadow_color = Color(0.392157, 0.00392157, 0.00392157, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6e45b"]
+texture = ExtResource("5_6e45b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e35lh"]
+texture = ExtResource("5_6e45b")
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_v1wow")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_6e45b")
-volume_db = -6.887
+volume_db = -13.005
 autoplay = true
 bus = &"Music"
 parameters/looping = true
@@ -68,6 +82,21 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 12
 text = "Lives: 3"
 
+[node name="SurviveLabel" type="Label" parent="GameLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -44.0
+offset_right = 138.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SURVIVE!"
+label_settings = SubResource("LabelSettings_6e45b")
+
 [node name="ReadyTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -91,7 +120,10 @@ offset_right = 80.0
 offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 0
-icon = ExtResource("5_6e45b")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6e45b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6e45b")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e35lh")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6e45b")
 
 [node name="GameOverLayer" type="CanvasLayer" parent="."]
 visible = false
@@ -104,6 +136,10 @@ texture = ExtResource("6_e35lh")
 [node name="GameOverTimer" type="Timer" parent="GameOverLayer"]
 wait_time = 3.0
 one_shot = true
+
+[node name="GameOverJingle" type="AudioStreamPlayer2D" parent="GameOverLayer"]
+stream = ExtResource("8_e35lh")
+bus = &"SFX"
 
 [connection signal="timeout" from="GameLayer/AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
 [connection signal="timeout" from="GameLayer/EnemyTimer" to="." method="_on_enemy_timer_timeout"]

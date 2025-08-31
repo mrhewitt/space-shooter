@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var enemy = preload("res://enemy/enemy.tscn")
 @onready var asteroid = preload("res://enemy/asteroid.tscn")
+@onready var survive_label: Label = $GameLayer/SurviveLabel
+@onready var game_over_jingle: AudioStreamPlayer2D = $GameOverLayer/GameOverJingle
 
 var score: int = 0
 var lives:int = 3
@@ -17,6 +19,17 @@ func start_game():
 
 func player_ready():
 	%Player.reset_position()
+	%Player.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	survive_label.modulate.a = 1
+	survive_label.visible = true
+	await get_tree().create_timer(1).timeout
+	var tween = create_tween() 
+	tween.tween_property(survive_label, "modulate:a", 0, 1)
+	await tween.finished
+	survive_label.visible = false
+	
+	%Player.process_mode = Node.PROCESS_MODE_INHERIT
 	next_enemy_time()
 	next_asteroid_time()
 
@@ -29,6 +42,7 @@ func player_died():
 	for sprite in %SpriteList.get_children():
 		sprite.queue_free()	
 	if lives <= 0:
+		game_over_jingle.play()
 		$GameOverLayer.visible = true
 		$GameOverLayer/GameOverTimer.start()
 	else:

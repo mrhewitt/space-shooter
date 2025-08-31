@@ -15,16 +15,22 @@ func _physics_process(delta: float) -> void:
 		position.x += -240 * delta
 	elif Input.is_action_pressed("move_right"):
 		position.x += 240 * delta
-
+	
+	if position.x < 0:
+		position.x = 0
+	if position.x > get_viewport_rect().size.x:
+		position.x = get_viewport_rect().size.x
+	
 
 # fire a projectile automatically on every timer tick (default 1 second)
 func _on_timer_timeout() -> void:
 	var projectile_instance = projectile.instantiate() as Node2D
 	projectile_instance.global_position = %Muzzle.global_position
 	%SpriteList.add_child(projectile_instance)
+	SfxPlayer.play_random('laser')
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	pass
 
 
@@ -34,7 +40,8 @@ func reset_position():
 	$ProjectileTimer.start()
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
+	SfxPlayer.play_random('explosion')
 	var explosion_instance = explosion.instantiate() as Node2D
 	explosion_instance.global_position = global_position
 	get_parent().add_child(explosion_instance)

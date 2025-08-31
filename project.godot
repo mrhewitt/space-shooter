@@ -15,6 +15,10 @@ run/main_scene="uid://dp7l2liqvc6ug"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SfxPlayer="*res://audio/sfx_player.gd"
+
 [display]
 
 window/size/viewport_width=480
